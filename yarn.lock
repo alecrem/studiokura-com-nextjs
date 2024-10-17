@@ -95,22 +95,13 @@
     "@chakra-ui/utils" "2.2.2"
     csstype "^3.1.2"
 
-"@chakra-ui/theme-tools@2.2.6":
+"@chakra-ui/theme-tools@2.2.6", "@chakra-ui/theme-tools@^2.2.6":
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/@chakra-ui/theme-tools/-/theme-tools-2.2.6.tgz#2aa2b27dbf1df5775c74cbc9372da917cff6b7ba"
   integrity sha512-3UhKPyzKbV3l/bg1iQN9PBvffYp+EBOoYMUaeTUdieQRPFzo2jbYR0lNCxqv8h5aGM/k54nCHU2M/GStyi9F2A==
   dependencies:
     "@chakra-ui/anatomy" "2.3.4"
     "@chakra-ui/utils" "2.2.2"
-    color2k "^2.0.2"
-
-"@chakra-ui/theme-tools@^2.2.5":
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/theme-tools/-/theme-tools-2.2.5.tgz#8ca1429e0d6d7a4de544a5f32ab3dbcd62e60d19"
-  integrity sha512-tUIv04Pzm2W8v5Iugei15qREIFX2mslI3fEouIVih8vHzwY821neCfspxOsAhvYSLNX+1kzk6ArBo9WzUpqn+Q==
-  dependencies:
-    "@chakra-ui/anatomy" "2.3.4"
-    "@chakra-ui/utils" "2.2.1"
     color2k "^2.0.2"
 
 "@chakra-ui/theme@3.4.6":
@@ -121,14 +112,6 @@
     "@chakra-ui/anatomy" "2.3.4"
     "@chakra-ui/theme-tools" "2.2.6"
     "@chakra-ui/utils" "2.2.2"
-
-"@chakra-ui/utils@2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/utils/-/utils-2.2.1.tgz#9dc0c3e42791e9f60daa37ff52dea0bd49b447c9"
-  integrity sha512-e9D6CDtQZWBx+rq7yW13mAeI3Vod4cWfUIip+XFNjPWQSJGOJb1MiXocoiJqaZ1S+jsN+mod4uCZmGcukv0iSg==
-  dependencies:
-    "@types/lodash.mergewith" "4.6.9"
-    lodash.mergewith "4.6.2"
 
 "@chakra-ui/utils@2.2.2":
   version "2.2.2"
