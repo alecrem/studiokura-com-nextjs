@@ -16,6 +16,7 @@ import {
   OnojyoCard,
   SarayamaCard,
   TakeoCard,
+  TomariCard
 } from '@/components/ClassPlaces';
 import { Container } from '@/components/Container';
 import { Footer } from '@/components/Footer';
@@ -73,6 +74,7 @@ const Classrooms = () => (
       </Heading>
       <CardStack>
         <ItoshimaCard />
+        <TomariCard />
       </CardStack>
       <Heading mt={16} size={'xl'} id={'higashiku'}>
         福岡市東区

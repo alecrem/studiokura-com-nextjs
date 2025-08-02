@@ -15,3 +15,4 @@ export * from '@/components/ClassPlaces/OnlineCard';
 export * from '@/components/ClassPlaces/OnojyoCard';
 export * from '@/components/ClassPlaces/SarayamaCard';
 export * from '@/components/ClassPlaces/TakeoCard';
+export * from '@/components/ClassPlaces/TomariCard';

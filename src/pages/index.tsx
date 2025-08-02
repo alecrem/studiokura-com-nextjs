@@ -17,7 +17,8 @@ import {
   OnlineCard,
   OnojyoCard,
   SarayamaCard,
-  TakeoCard,
+  TomariCard,
+  TakeoCard
 } from '@/components/ClassPlaces';
 import { ClassTypeCard } from '@/components/ClassTypeCard';
 import { Container } from '@/components/Container';
@@ -85,6 +86,7 @@ const Index = () => (
         <NagazumiCard />
       </CardStack>
       <CardStack>
+        <TomariCard />
         <KurumeCard />
         <OnlineCard />
       </CardStack>
