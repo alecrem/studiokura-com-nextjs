@@ -16,6 +16,7 @@ const cdnDirectory = process.env.NEXT_PUBLIC_CDN_DIRECTORY ?? '';
 
 const ClassPlaceSlide1 = (props: ClassPlaceSlide1Props) => {
   const { placeName, tagline, bgImageUrl, children } = props;
+  const memoText = typeof children === 'string' ? children : '';
   return (
     <Container
       bgImage={`https://${cdnDomain}/${cdnDirectory}${bgImageUrl}`}
@@ -27,7 +28,9 @@ const ClassPlaceSlide1 = (props: ClassPlaceSlide1Props) => {
         <Box w={'full'} rounded={'xl'} p={0} pb={2} textAlign={'center'}>
           <Hero title={placeName} />
           <ShadowText text={tagline} />
-          <ShadowText text={children ?? ''} />
+          {memoText ? (
+            <ShadowText text={memoText} color="white" hasShadow />
+          ) : null}
           <Center>
             <Stack direction={['column', 'row']}>
               <TrialButton mr={1} />

@@ -1,4 +1,5 @@
 import { Container } from '@chakra-ui/react';
+import { type GetServerSideProps, type InferGetServerSidePropsType } from 'next';
 
 import {
   ClassPlaceSlide1,
@@ -11,8 +12,35 @@ import {
 import { Footer } from '@/components/Footer';
 import { Layout } from '@/components/Layout';
 import { Navigation } from '@/components/Navigation';
+import { fetchTopMemoFromBff } from '@/utils/classPlacePage';
 
-const HashimotoPlace = () => (
+const HASHIMOTO_SLUG = 'hashimoto';
+const HASHIMOTO_MEMO_FALLBACK = null;
+
+export const getServerSideProps: GetServerSideProps<{
+  topMemo: string | null;
+}> = async (context) => {
+  context.res.setHeader('Cache-Control', 'no-store, max-age=0');
+  const result = await fetchTopMemoFromBff(context.req, HASHIMOTO_SLUG);
+  if (result.topMemo) {
+    return {
+      props: {
+        topMemo: result.topMemo,
+      },
+    };
+  }
+
+  return {
+    props: {
+      topMemo: HASHIMOTO_MEMO_FALLBACK,
+    },
+  };
+};
+
+
+const HashimotoPlace = ({
+  topMemo,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => (
   <Layout title="Studio Kura 絵画教室 橋本校">
     <Navigation />
     <ClassPlaceSlide1
@@ -20,7 +48,7 @@ const HashimotoPlace = () => (
       tagline="子ども絵画造形教室・電子工作教室"
       bgImageUrl="placeslide1-hashimoto.jpg"
     >
-      2023年4月度より、人気の土曜日絵画造形クラスを増設しました。若干名ご案内可能です。
+      {topMemo}
     </ClassPlaceSlide1>
     <ClassPlaceSlide2
       placeName="Studio Kura 橋本校"

@@ -1,4 +1,5 @@
 import { Container } from '@chakra-ui/react';
+import { type GetServerSideProps, type InferGetServerSidePropsType } from 'next';
 
 import {
   ClassPlaceSlide1,
@@ -11,8 +12,35 @@ import {
 import { Footer } from '@/components/Footer';
 import { Layout } from '@/components/Layout';
 import { Navigation } from '@/components/Navigation';
+import { fetchTopMemoFromBff } from '@/utils/classPlacePage';
 
-const NagazumiPlace = () => (
+const NAGAZUMI_SLUG = 'nagazumi';
+const NAGAZUMI_MEMO_FALLBACK = null;
+
+export const getServerSideProps: GetServerSideProps<{
+  topMemo: string | null;
+}> = async (context) => {
+  context.res.setHeader('Cache-Control', 'no-store, max-age=0');
+  const result = await fetchTopMemoFromBff(context.req, NAGAZUMI_SLUG);
+  if (result.topMemo) {
+    return {
+      props: {
+        topMemo: result.topMemo,
+      },
+    };
+  }
+
+  return {
+    props: {
+      topMemo: NAGAZUMI_MEMO_FALLBACK,
+    },
+  };
+};
+
+
+const NagazumiPlace = ({
+  topMemo,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => (
   <Layout title="Studio Kura 絵画教室 長住校">
     <Navigation />
     <ClassPlaceSlide1
@@ -20,7 +48,7 @@ const NagazumiPlace = () => (
       tagline="子ども絵画造形教室"
       bgImageUrl="placeslide1-nagazumi.jpg"
     >
-      現在は満席です。キャンセル待ちを受付しています。
+      {topMemo}
     </ClassPlaceSlide1>
     <ClassPlaceSlide2
       placeName="Studio Kura 長住校"

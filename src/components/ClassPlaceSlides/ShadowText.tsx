@@ -21,7 +21,7 @@ export const ShadowText = ({
     my={my}
     color={color}
     {...(hasShadow && {
-      textShadow: 'black 0.03em 0.03em 0.03em;',
+      textShadow: '0 2px 6px rgba(0,0,0,0.8), 0 0 12px rgba(0,0,0,0.6)',
     })}
   >
     <>{text}</>

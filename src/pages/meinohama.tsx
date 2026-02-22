@@ -1,4 +1,5 @@
 import { Container } from '@chakra-ui/react';
+import { type GetServerSideProps, type InferGetServerSidePropsType } from 'next';
 
 import {
   ClassPlaceSlide1,
@@ -11,8 +12,14 @@ import {
 import { Footer } from '@/components/Footer';
 import { Layout } from '@/components/Layout';
 import { Navigation } from '@/components/Navigation';
+import { fetchTopMemoFromBff } from '@/utils/classPlacePage';
 
-const meinohamaPlace = () => (
+const MEINOHAMA_SLUG = 'meinohama';
+const MEINOHAMA_MEMO_FALLBACK = null;
+
+const meinohamaPlace = ({
+  topMemo,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => (
   <Layout title="Studio Kura 絵画教室 姪浜校">
     <Navigation />
     <ClassPlaceSlide1
@@ -20,7 +27,7 @@ const meinohamaPlace = () => (
       tagline="子ども絵画造形教室"
       bgImageUrl="placeslide1-meinohama.jpg"
     >
-      現在定員の為、キャンセル待ちからのご案内です
+      {topMemo}
     </ClassPlaceSlide1>
     <ClassPlaceSlide2
       placeName="Studio Kura 姪浜校"
@@ -42,5 +49,32 @@ const meinohamaPlace = () => (
     </Container>
   </Layout>
 );
+
+export const getServerSideProps: GetServerSideProps<{
+  topMemo: string | null;
+}> = async (context) => {
+  context.res.setHeader('Cache-Control', 'no-store, max-age=0');
+  const result = await fetchTopMemoFromBff(context.req, MEINOHAMA_SLUG);
+  if (result.topMemo) {
+    return {
+      props: {
+        topMemo: result.topMemo,
+      },
+    };
+  }
+
+  console.error('[meinohama-page] class place api unavailable', {
+    slug: MEINOHAMA_SLUG,
+    requestId: result.requestId,
+    endpoint: result.endpoint,
+    status: result.status,
+    error: result.error,
+  });
+  return {
+    props: {
+      topMemo: MEINOHAMA_MEMO_FALLBACK,
+    },
+  };
+};
 
 export default meinohamaPlace;

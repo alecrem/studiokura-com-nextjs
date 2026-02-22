@@ -1,4 +1,5 @@
 import { Container } from '@chakra-ui/react';
+import { type GetServerSideProps, type InferGetServerSidePropsType } from 'next';
 
 import {
   ClassPlaceSlide1,
@@ -11,8 +12,35 @@ import {
 import { Footer } from '@/components/Footer';
 import { Layout } from '@/components/Layout';
 import { Navigation } from '@/components/Navigation';
+import { fetchTopMemoFromBff } from '@/utils/classPlacePage';
 
-const OnojyoPlace = () => (
+const ONOJYO_SLUG = 'onojyo';
+const ONOJYO_MEMO_FALLBACK = null;
+
+export const getServerSideProps: GetServerSideProps<{
+  topMemo: string | null;
+}> = async (context) => {
+  context.res.setHeader('Cache-Control', 'no-store, max-age=0');
+  const result = await fetchTopMemoFromBff(context.req, ONOJYO_SLUG);
+  if (result.topMemo) {
+    return {
+      props: {
+        topMemo: result.topMemo,
+      },
+    };
+  }
+
+  return {
+    props: {
+      topMemo: ONOJYO_MEMO_FALLBACK,
+    },
+  };
+};
+
+
+const OnojyoPlace = ({
+  topMemo,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => (
   <Layout title="Studio Kura 絵画教室 大野城校">
     <Navigation />
     <ClassPlaceSlide1
@@ -20,8 +48,7 @@ const OnojyoPlace = () => (
       tagline="子ども絵画造形教室"
       bgImageUrl="placeslide1-onojyo.jpg"
     >
-      毎月第１・３火曜日17時〜レッスンを行っています。体験教室を受付中です。
-      3歳以上の方から受け入れが可能です。
+      {topMemo}
     </ClassPlaceSlide1>
     <ClassPlaceSlide2
       placeName="Studio Kura 大野城校"

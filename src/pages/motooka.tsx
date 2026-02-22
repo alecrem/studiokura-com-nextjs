@@ -1,4 +1,5 @@
 import { Container } from '@chakra-ui/react';
+import { type GetServerSideProps, type InferGetServerSidePropsType } from 'next';
 
 import {
   ClassPlaceSlide1,
@@ -11,8 +12,35 @@ import {
 import { Footer } from '@/components/Footer';
 import { Layout } from '@/components/Layout';
 import { Navigation } from '@/components/Navigation';
+import { fetchTopMemoFromBff } from '@/utils/classPlacePage';
 
-const MotookaPlace = () => (
+const MOTOOKA_SLUG = 'motooka';
+const MOTOOKA_MEMO_FALLBACK = null;
+
+export const getServerSideProps: GetServerSideProps<{
+  topMemo: string | null;
+}> = async (context) => {
+  context.res.setHeader('Cache-Control', 'no-store, max-age=0');
+  const result = await fetchTopMemoFromBff(context.req, MOTOOKA_SLUG);
+  if (result.topMemo) {
+    return {
+      props: {
+        topMemo: result.topMemo,
+      },
+    };
+  }
+
+  return {
+    props: {
+      topMemo: MOTOOKA_MEMO_FALLBACK,
+    },
+  };
+};
+
+
+const MotookaPlace = ({
+  topMemo,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => (
   <Layout title="Studio Kura 絵画教室 元岡校">
     <Navigation />
     <ClassPlaceSlide1
@@ -20,7 +48,7 @@ const MotookaPlace = () => (
       tagline="子ども絵画造形教室"
       bgImageUrl="placeslide1-motooka.jpg"
     >
-      定員の為、キャンセル待ちのみの受付です。糸島校もご検討下さい。
+      {topMemo}
     </ClassPlaceSlide1>
     <ClassPlaceSlide2
       placeName="Studio Kura 元岡校"
