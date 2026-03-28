@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(git checkout:*)",
+      "Bash(yarn tailwindcss init:*)",
+      "Bash(yarn add:*)",
+      "Bash(yarn dev)",
+      "Bash(yarn build)",
+      "Bash(rm:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "additionalDirectories": [
+      "/private/tmp"
+    ]
+  }
+}
