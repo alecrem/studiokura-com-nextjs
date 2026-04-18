@@ -4,7 +4,6 @@ import {
   Hakozaki2Card,
   HashimotoCard,
   ItoshimaCard,
-  KaratsuCard,
   KashiiCard,
   KurumeCard,
   MeinohamaCard,
@@ -58,9 +57,6 @@ const Classrooms = () => (
         </ScrollLink>
         <ScrollLink className={'btn'} href={'#kurume'}>
           福岡県久留米市
-        </ScrollLink>
-        <ScrollLink className={'btn'} href={'#karatsu'}>
-          佐賀県唐津市
         </ScrollLink>
         <ScrollLink className={'btn'} href={'#takeo'}>
           佐賀県武雄市
@@ -123,12 +119,6 @@ const Classrooms = () => (
       </Heading>
       <CardStack>
         <KurumeCard />
-      </CardStack>
-      <Heading mt={16} size={'xl'} id={'karatsu'}>
-        佐賀県唐津市
-      </Heading>
-      <CardStack>
-        <KaratsuCard />
       </CardStack>
       <Heading mt={16} size={'xl'} id={'takeo'}>
         佐賀県武雄市

@@ -6,7 +6,6 @@ import {
   Hakozaki2Card,
   HashimotoCard,
   ItoshimaCard,
-  KaratsuCard,
   KashiiCard,
   KurumeCard,
   MeinohamaCard,
@@ -66,7 +65,6 @@ const Index = () => (
         <TakeoCard />
       </CardStack>
       <CardStack>
-        <KaratsuCard />
         <HakozakiCard />
         <Hakozaki2Card />
       </CardStack>
