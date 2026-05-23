@@ -2,7 +2,7 @@
 
 Studio Kura 絵画教室のウェブサイト。
 
-- パッケージマネージャー: [Yarn](https://yarnpkg.com/)
+- パッケージマネージャー: [pnpm](https://pnpm.io/)
 - フレームワーク: [Next.js](https://nextjs.org/)
 - React コンポーネント: [Chakra UI](https://v2.chakra-ui.com/)
 - デプロイ: [Vercel](https://vercel.com/)
@@ -13,7 +13,7 @@ Studio Kura 絵画教室のウェブサイト。
 
 - [git](https://git-scm.com/) (バージョン管理)
 - [Node.js](https://nodejs.org/) (JavaScript エンジン)
-- [Yarn](https://yarnpkg.com/) (パッケージマネージャー)
+- [pnpm](https://pnpm.io/) (パッケージマネージャー)
 - [Visual Studio Code](https://code.visualstudio.com/) (など任意のコードエディタ)
 
 ### リポジトリを clone
@@ -58,8 +58,8 @@ cp .env.sample .env.local
 ## ローカル環境での開発
 
 1. リポジトリのディレクトリに入る: `cd studiokura-com-nextjs`
-2. 必要なパッケージをインストール: `yarn`
-3. 開発用サーバーを起動: `yarn dev`
+2. 必要なパッケージをインストール: `pnpm install`
+3. 開発用サーバーを起動: `pnpm dev`
 4. 作業が終わる時やサーバーを再起動したい場合: Ctrl+C で終了させる
 
 開発用サーバーを起動している間、コードに加えたほとんどの変更がそのまま反映される。
