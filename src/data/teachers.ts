@@ -3,15 +3,9 @@ export const teachers = [
     slug: 'matsuzaki',
     name: '松崎宏史',
     content:
-      '<p>1979年福岡県糸島市生まれ。広島市立大学芸術学部油絵科卒業後、ドイツハノーバー専科大学で学ぶ。ヨーロッパを中心に世界各地で展示を行う。糸島から世界へ文化発信をモットーに2009年アート カンパニー（株）Studio Kuraを設立。糸島芸術祭「<a href="http://www.ito-artsfarm.com/" target="BLANK"/>糸島芸農</a>」実行委員長<br /><br /><a href="/otona/index.html">大人の絵画教室</a>、<a href="/kodomo/index.html">こども絵画造形教室</a>、<a href="/denshikousaku/index.html">電子工作室</a>、<a href="/kindergarten/index.html">幼稚園・保育園</a>でのレッスンを担当しています。</p><ul><li>1979&nbsp;&nbsp;福岡県に生まれる</li><li>2003&nbsp;&nbsp;広島市立大学美術学部油絵科卒&nbsp;三原康弘に学ぶ</li><li>2004&nbsp;&nbsp;ハノーヴァー専科大学版画科&nbsp;Peter Redekerに学ぶ</li></ul><h4>個展</h4><ul><li>2010&nbsp;&nbsp;インスティンク （シンガポール）</li><li>2009&nbsp;&nbsp;マキイマサル&nbsp;ファインアーツ （東京,日本）&nbsp;&nbsp;<a href="/kindergarten/koushi/presse_matsuzaki090120.pdf" target="_blank">プレスリリース(pdfファイル)</a></li><li>2006&nbsp;&nbsp;イマジンハウス　（福岡,日本）</li><li>2005&nbsp;&nbsp;ギャラリー 　ネブロサ　( ハラパ,メキシコ)</li><li><span>2005</span>&nbsp;&nbsp;タヘレス　ノイエギャラリー　(ベルリン,ドイツ)</li><li><span>2005</span>&nbsp;&nbsp;ギャラリー　ファンゴ　(コトブス,ドイツ)</li><li>2003&nbsp;&nbsp;ネッツギャラリー (広島,日本)</li></ul><h4>グループ展</h4><ul><li>2011&nbsp;&nbsp;街中アートギャラリー&nbsp;（福岡,日本）</li><li>2009&nbsp;&nbsp;ギャラリー　ボーン＋ブッセ "YOUR CONSENT"&nbsp;(ライプチッヒ,ドイツ)</li><li><span>2009</span>&nbsp;&nbsp;ギャラリー　ボーン＋ブッセ "Sommer of Love"&nbsp;(ライプチッヒ,ドイツ)</li><li><span>2009</span>&nbsp;&nbsp;伊都郷土美術館 "Hello World"&nbsp;(福岡，日本)</li><li><span>2009</span>&nbsp;&nbsp;ジェネラルパブリック　"Ubiquitious Oscillations"&nbsp;(ベルリン,ドイツ)</li><li><span>2009</span>&nbsp;&nbsp;ギャラリーアートリエ"通りと広場＜トランジット＞展"&nbsp;（福岡,日本）</li><li>2008&nbsp;&nbsp;ギャラリー　ボーン＋ブッセ　"Geld spielt keine Rolle"&nbsp;(ライプチッヒ,ドイツ)</li><li><span>2008</span>&nbsp;&nbsp;De Schildersweek "インターナショナル アーティスト ウィーク" &nbsp;(ドンブルク,オランダ)</li><li><span>2008</span>&nbsp;&nbsp;ミュージアム　レンダバ　"14．LindArt international Artist Colony" (レンダバ, スロベニア)</li><li><span>2008</span>&nbsp;&nbsp;ギャラリー　バッシュハウス "goodbye hirofumi"&nbsp;(ベルリン，ドイツ)</li><li><span>2008</span>&nbsp;&nbsp;ギャラリー　ボーン+ブッセ "Hirofumi Matsuzaki x Kerstin Heymann"&nbsp;(ライプッチヒ,ドイツ)</li><li><span>2008</span>&nbsp;&nbsp;ジェネラルパブリック　"2 x Three Beauties - The Charites"&nbsp;(ベルリン,ドイツ)</li><li><span>2008</span>&nbsp;&nbsp;ギャラリー　バッシュハウス　"Psycho Berlin"&nbsp;(ベルリン,ドイツ)</li><li>2007&nbsp;&nbsp;ギャラリー89　"@out"&nbsp;(パリ,フランス)</li><li><span>2007</span>&nbsp;&nbsp;ギャラリーF92&nbsp;(ベルリン,ドイツ)</li><li><span>2007</span>&nbsp;&nbsp;クンスト ハレECC "Runde2"&nbsp;(ベルリン,ドイツ)</li><li><span>2007</span>&nbsp;&nbsp;ギャラリーバッシュハウス "Dreckspatz"&nbsp;(ベルリン,ドイツ)</li><li><span>2007</span>&nbsp;&nbsp;ギャラリーイマジンハウス&nbsp;(福岡,日本)</li><li><span>2007</span>&nbsp;&nbsp;ギャラリー　バッシュハウス "Smash"&nbsp;(ベルリン,ドイツ)</li><li>2006&nbsp;&nbsp;ギャラリー　バッシュハウス "松崎宏史 x 中村亮一"&nbsp;(ベルリン,ドイツ)</li><li><span>2006</span>&nbsp;&nbsp;ギャラリー731 "99312展"&nbsp;(広島,日本)</li><li>2005&nbsp;&nbsp;ギャラリーインベトロ&nbsp;(ハノーバー,ドイツ)</li><li><span>2005</span>&nbsp;&nbsp;バルチックロータワー&nbsp;(ハンブルク,ドイツ)</li><li><span>2005</span>&nbsp;&nbsp;タヘレス　ノイエ　ギャラリー　"weil wir so anderes sind.."&nbsp;(ベルリン,ドイツ)</li><li><span>2005</span>&nbsp;&nbsp;ABCクンストサービス&nbsp;(ベルリン,ドイツ)</li><li><span>2005</span>&nbsp;&nbsp;ギャラリーインベトロ&nbsp;(ハノーバー,ドイツ)</li><li>2004&nbsp;&nbsp;ギャラリー　シパンダウ&nbsp;(ハノーバー,ドイツ)</li><li><span>2004</span>&nbsp;&nbsp;チェコパビリオン "ろくでなし"&nbsp;(ハノーバー,ドイツ)</li><li>2003&nbsp;&nbsp;広島県立美術館"99312展"&nbsp;(広島,日本）</li><li><span>2003</span>&nbsp;&nbsp;仙台メディアパーク&nbsp;（仙台,日本）</li><li>2002&nbsp;&nbsp;すどう美術館 "若き画家たちからのメッセージ"&nbsp;（東京,日本）</li></ul><h4>賞</h4><ul><li>2007&nbsp;&nbsp;クンストプライス BSA&nbsp;</li><li>2003&nbsp;&nbsp;広島デザイン賞　優秀賞</li></ul><h4>ワークショップ</h4><ul><li>2006&nbsp;&nbsp;インターナショナルドローイングワークショップ</li><li><span>2006</span>&nbsp;&nbsp;ギャラリーインベトロ&nbsp;(ハノーバー,ドイツ)</li></ul><h4>レジデンス</h4><ul><li>2010 Instinc&nbsp;(シンガポール)</li><li>2009 Air Krems&nbsp;（クレームス,オーストリア）</li><li>2008 14．LindArt international Artist Colony&nbsp; (レンダバ, スロベニア)</li><li>2008 De Schildersweek&nbsp;(ドンブルク,オランダ)</li><li>2004-05 アーティストハウス　タヘレス&nbsp;(ベルリン,ドイツ)</li><li>2005 ギャラリーネブロサ&nbsp;(ハラパ,メキシコ)</li></ul><h4>運営</h4><ul><li><a href="http://www.studiokura.info">アーティストインレジデンス Studio Kura（福岡,日本）</a></li><li id="saigo">ギャラリーバッシュハウス&nbsp;(ベルリン,ドイツ)</li></ul>',
-    images: [
-      'teachers-matsuzaki-1.jpg',
-      'teachers-matsuzaki-2.jpg',
-      'teachers-matsuzaki-3.jpg',
-      'teachers-matsuzaki-4.jpg',
-      'teachers-matsuzaki-5.jpg',
-      'teachers-matsuzaki-6.jpg',
-    ],
+      '<p>1979年福岡県糸島市生まれ。広島市立大学芸術学部油絵科卒業後、ドイツハノーバー専科大学で学ぶ。ヨーロッパを中心に世界各地で展示を行う。糸島から世界へ文化発信をモットーに2009年アート カンパニー（株）Studio Kuraを設立。糸島芸術祭「<a href="http://www.ito-artsfarm.com/" target="BLANK"/>糸島芸農</a>」実行委員長<br />2024年福岡県文化賞　社会部門受賞</p>',
+    images: ['/images/teachers-matsuzaki-1.jpg'],
+    thumbnailImage: '/images/teachers-matsuzaki-thumbnail.jpg',
   },
   {
     slug: 'alejandro',
@@ -32,7 +26,8 @@ export const teachers = [
     name: '小川博起',
     content:
       '<p>長崎県佐世保市出身 </p><p>麻生建築&デザイン専門学校ビジュアルデザイン科卒<br />油彩画が好きです。特にシュルレアリスムの絵。</p>',
-    images: ['teachers-ogawa-1.jpg'],
+    images: ['/images/teachers-ogawa-1.jpg'],
+    thumbnailImage: '/images/teachers-ogawa-thumbnail.jpg',
   },
   {
     slug: 'ito',
@@ -67,7 +62,8 @@ export const teachers = [
     name: '田上詩織',
     content:
       '<p>武蔵野美術大学造形学部油絵科　油絵専攻　卒業</p><p>表現をすることの楽しさ、難しさが、人生を豊かに広げてくれることを信じて指導にあたっております。スタジオクラで学んで良かったと思ってもらえるように、ひとりひとりの好奇心に寄り添い、引き出していきたいです。<br /><br />',
-    images: ['teachers-tanoue-1.jpg'],
+    images: ['/images/teachers-tanoue-1.jpg'],
+    thumbnailImage: '/images/teachers-tanoue-thumbnail.jpg',
   },
   {
     slug: 'tanaka',
@@ -116,5 +112,13 @@ export const teachers = [
     content:
       '	<p>福岡県出身</p><p>2011年佐賀大学大学院修了　大学では西洋画を専攻し、銅版画や油彩画の作品を制作しました。大学院修了後上京し、グループ展や個展を中心に作品を発表してきました。画家業と並行して子供〜大人までさまざまな年齢の方を対象に美術の指導の経験を積んできました。現在は福岡県にアトリエを構え日々制作活動に励んでいます。アートを通じて豊かな心が育まれるよう楽しく指導できればと思います。よろしくお願いいたします。</p>',
     images: ['teachers-maki-1.jpg'],
+  },
+  {
+    slug: 'suzuki-yuho',
+    name: '鈴木 優歩',
+    content:
+      '<p>千葉県出身</p><p>武蔵野美術大学造形学部　工芸工業デザイン学科卒業</p><p>在学中にアートと教育・社会とのつながりに興味をもち、絵画教室での経験を重ねる。卒業後は東京都の公立小学校で9年間、図画工作専科として勤務。</p><p>アート＆デザインは、見るのも描くのも大好きです！描く楽しさを通じて一人ひとりの感性を育む指導を行っていきたいです。</p>',
+    images: ['/images/teachers-suzuki-yuho-1.jpg'],
+    thumbnailImage: '/images/teachers-suzuki-yuho-thumbnail.jpg',
   },
 ];

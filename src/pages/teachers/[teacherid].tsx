@@ -3,7 +3,8 @@ import { Footer } from '@/components/Footer';
 import { Layout } from '@/components/Layout';
 import { Navigation } from '@/components/Navigation';
 import type { TeacherData } from '@/pages/api/get-teacher-info';
-import { Box, Heading, Image, SimpleGrid } from '@chakra-ui/react';
+import { Box, Button, Heading, Image, SimpleGrid } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
@@ -12,6 +13,11 @@ const dummyTeacher: TeacherData = {
 };
 const cdnDomain = process.env.NEXT_PUBLIC_CDN_DOMAIN ?? '';
 const cdnDirectory = process.env.NEXT_PUBLIC_CDN_DIRECTORY ?? '';
+
+const getTeacherImageSrc = (imageSrc: string) =>
+  imageSrc.startsWith('/')
+    ? imageSrc
+    : `https://${cdnDomain}/${cdnDirectory}${imageSrc}`;
 
 const TeacherProfilePage = () => {
   const router = useRouter();
@@ -41,30 +47,40 @@ const TeacherProfilePage = () => {
         </Heading>
       </Container>
       <Container>
-        <Box
-          dangerouslySetInnerHTML={{ __html: teacherData.content ?? '' }}
-          maxW={['100%', '80%', '70%', '60%', '800px']}
-          px={8}
-        />
+        <Button
+          as={NextLink}
+          href="/teachers"
+          mb={6}
+          size="sm"
+          variant="outline"
+        >
+          ← 講師一覧へ戻る
+        </Button>
         {teacherData?.images?.length && teacherData.images.length < 2 ? (
           /* 写真が一つだけの場合、その写真だけを表示 */
           <Image
-            src={`https://${cdnDomain}/${cdnDirectory}${teacherData.images[0]}`}
+            src={getTeacherImageSrc(teacherData.images[0])}
             alt={`${teacherData.name}の写真`}
-            p={4}
+            maxW={['100%', '420px']}
+            mb={8}
           />
         ) : (
           /* 写真が二つ以上の場合、グリッドに並べる */
-          <SimpleGrid columns={[1, 2]} mt={8}>
+          <SimpleGrid columns={[1, 2]} mb={8}>
             {teacherData.images?.map((imageSrc: string) => (
               <Image
-                src={`https://${cdnDomain}/${cdnDirectory}${imageSrc}`}
+                src={getTeacherImageSrc(imageSrc)}
                 alt={`${teacherData.name}の写真`}
                 p={4}
               />
             ))}
           </SimpleGrid>
         )}
+        <Box
+          dangerouslySetInnerHTML={{ __html: teacherData.content ?? '' }}
+          maxW={['100%', '80%', '70%', '60%', '800px']}
+          px={8}
+        />
         <Footer />
       </Container>
     </Layout>

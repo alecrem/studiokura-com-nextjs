@@ -21,6 +21,10 @@ const dummyTeacher: TeacherData = {
 const cdnDomain = process.env.NEXT_PUBLIC_CDN_DOMAIN ?? '';
 const cdnDirectory = process.env.NEXT_PUBLIC_CDN_DIRECTORY ?? '';
 
+const getTeacherThumbnailSrc = (teacher: TeacherData) =>
+  teacher.thumbnailImage ??
+  `https://${cdnDomain}/${cdnDirectory}teachers-${teacher.slug}-thumbnail.jpg`;
+
 const TeacherList = () => {
   const [teachersData, setTeachersData] = useState<TeacherData[]>([
     dummyTeacher,
@@ -53,7 +57,7 @@ const TeacherList = () => {
                 <Card maxW={150} m={4}>
                   <CardHeader p={0}>
                     <Image
-                      src={`https://${cdnDomain}/${cdnDirectory}teachers-${teacher.slug}-thumbnail.jpg`}
+                      src={getTeacherThumbnailSrc(teacher)}
                       alt={`${teacher.name}の写真`}
                       mb={4}
                     />

@@ -6,7 +6,19 @@ export type TeacherData = {
   name?: string;
   content?: string;
   images?: string[];
+  thumbnailImage?: string;
 };
+
+const hiddenTeacherSlugs = new Set([
+  'alejandro',
+  'azuma',
+  'watanabe',
+  'tanaka',
+  'nakajima',
+  'moriyama',
+  'sakai',
+  'maki',
+]);
 
 const handler = async (
   req: NextApiRequest,
@@ -20,7 +32,9 @@ const handler = async (
   }
 
   try {
-    const teachersData: TeacherData[] = teachers;
+    const teachersData: TeacherData[] = teachers.filter(
+      (teacher) => !hiddenTeacherSlugs.has(teacher.slug)
+    );
     if (teachersData.length < 1)
       res.status(404).json([{ slug: 'error', content: 'Teacher not found' }]);
     res.status(200).json(teachersData);
