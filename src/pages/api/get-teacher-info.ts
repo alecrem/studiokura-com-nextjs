@@ -6,6 +6,7 @@ export type TeacherData = {
   name?: string;
   content?: string;
   images?: string[];
+  thumbnailImage?: string;
 };
 
 const handler = async (
