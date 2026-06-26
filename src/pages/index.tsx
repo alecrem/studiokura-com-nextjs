@@ -1,4 +1,14 @@
-import { Box, Button, Heading, Image, SimpleGrid, Stack, Text, useColorModeValue } from '@chakra-ui/react';
+import {
+  AspectRatio,
+  Box,
+  Button,
+  Heading,
+  Image,
+  SimpleGrid,
+  Stack,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 import {
@@ -25,7 +35,17 @@ import { Footer } from '@/components/Footer';
 import { CardStack, Layout } from '@/components/Layout';
 import { Navigation } from '@/components/Navigation';
 
-const courseCards = [
+type CourseCard = {
+  title: string;
+  description: string;
+  href: string;
+  buttonText: string;
+  imageSrc: string;
+  localImage: boolean;
+  objectPosition: string;
+};
+
+const courseCards: CourseCard[] = [
   {
     title: '子ども絵画造形教室',
     description:
@@ -34,6 +54,7 @@ const courseCards = [
     buttonText: '子ども教室を見る',
     imageSrc: '/images/card-kodomo.png',
     localImage: true,
+    objectPosition: 'center 30%',
   },
   {
     title: '大人の絵画教室',
@@ -43,6 +64,7 @@ const courseCards = [
     buttonText: '大人教室を見る',
     imageSrc: '/images/card-otona.jpg',
     localImage: true,
+    objectPosition: 'center 38%',
   },
   {
     title: '園・施設向けレッスン',
@@ -52,6 +74,7 @@ const courseCards = [
     buttonText: '園・施設向け案内を見る',
     imageSrc: '/images/card-kindergartens.png',
     localImage: true,
+    objectPosition: 'center 48%',
   },
   {
     title: '電子工作教室',
@@ -61,6 +84,7 @@ const courseCards = [
     buttonText: '電子工作教室を見る',
     imageSrc: '/images/card-denshi.png',
     localImage: true,
+    objectPosition: 'center 40%',
   },
 ];
 
@@ -71,7 +95,8 @@ const TopCourseCard = ({
   buttonText,
   imageSrc,
   localImage,
-}: (typeof courseCards)[number]) => {
+  objectPosition,
+}: CourseCard) => {
   const cdnDomain = process.env.NEXT_PUBLIC_CDN_DOMAIN ?? '';
   const cdnDirectory = process.env.NEXT_PUBLIC_CDN_DIRECTORY ?? '';
   const resolvedImageSrc = localImage
@@ -85,13 +110,16 @@ const TopCourseCard = ({
       borderRadius="xl"
       overflow="hidden"
     >
-      <Image
-        src={resolvedImageSrc}
-        alt={`${title}の写真`}
-        w="full"
-        h="230px"
-        objectFit="cover"
-      />
+      <AspectRatio ratio={16 / 9}>
+        <Image
+          src={resolvedImageSrc}
+          alt={`${title}の写真`}
+          w="full"
+          h="full"
+          objectFit="cover"
+          objectPosition={objectPosition}
+        />
+      </AspectRatio>
       <Box p={[4, 5]}>
         <Heading size="md" mb={3}>
           {title}
@@ -117,7 +145,7 @@ const Index = () => (
   <Layout>
     <Navigation />
     <Container zIndex={0}>
-      <Box mt={[6, 8]} mb={[8, 10]}>
+      <Box mt={[6, 8]} mb={[8, 10]} w="full" maxW="1080px">
         <Text
           color="gray.700"
           fontSize="sm"
@@ -178,7 +206,9 @@ const Index = () => (
         </Box>
       </Box>
 
-      <Heading mt="2em">教室一覧</Heading>
+      <Box w="full" maxW="1080px">
+        <Heading mt="2em">教室一覧</Heading>
+      </Box>
       <CardStack>
         <ItoshimaCard />
         <NishijinCard />
