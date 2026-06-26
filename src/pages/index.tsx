@@ -32,7 +32,7 @@ const courseCards = [
       '年齢や発達段階に合わせたレッスンをご案内します。描くこと、つくることを通じて表現する楽しさを育てます。',
     href: '/kids',
     buttonText: '子ども教室を見る',
-    imageSrc: '/images/card-kodomo.jpg',
+    imageSrc: '/images/card-kodomo.png',
     localImage: true,
   },
   {
@@ -50,7 +50,7 @@ const courseCards = [
       '幼稚園・保育園・施設向けの導入案内はこちらです。現場に合わせた造形レッスンの導入をご相談いただけます。',
     href: '/kindergartens',
     buttonText: '園・施設向け案内を見る',
-    imageSrc: '/images/card-kindergartens.jpg',
+    imageSrc: '/images/card-kindergartens.png',
     localImage: true,
   },
   {
