@@ -1,9 +1,20 @@
-import { Heading } from '@chakra-ui/react';
+import {
+  AspectRatio,
+  Box,
+  Button,
+  Heading,
+  Image,
+  SimpleGrid,
+  Stack,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 import {
   BefuCard,
-  HakozakiCard,
   Hakozaki2Card,
+  HakozakiCard,
   HashimotoCard,
   ItoshimaCard,
   KashiiCard,
@@ -16,49 +27,188 @@ import {
   OnlineCard,
   OnojyoCard,
   SarayamaCard,
+  TakeoCard,
   TomariCard,
-  TakeoCard
 } from '@/components/ClassPlaces';
-import { ClassTypeCard } from '@/components/ClassTypeCard';
 import { Container } from '@/components/Container';
 import { Footer } from '@/components/Footer';
 import { CardStack, Layout } from '@/components/Layout';
 import { Navigation } from '@/components/Navigation';
 
+type CourseCard = {
+  title: string;
+  description: string;
+  href: string;
+  buttonText: string;
+  imageSrc: string;
+  localImage: boolean;
+  objectPosition: string;
+};
+
+const courseCards: CourseCard[] = [
+  {
+    title: '子ども絵画造形教室',
+    description:
+      '年齢や発達段階に合わせたレッスンをご案内します。描くこと、つくることを通じて表現する楽しさを育てます。',
+    href: '/kids',
+    buttonText: '子ども教室を見る',
+    imageSrc: '/images/card-kodomo.png',
+    localImage: true,
+    objectPosition: 'center 30%',
+  },
+  {
+    title: '大人の絵画教室',
+    description:
+      '初心者から経験者まで、自分のペースで学べます。落ち着いた環境で絵を描く時間を楽しみたい方におすすめです。',
+    href: '/adults',
+    buttonText: '大人教室を見る',
+    imageSrc: '/images/card-otona.jpg',
+    localImage: true,
+    objectPosition: 'center 38%',
+  },
+  {
+    title: '園・施設向けレッスン',
+    description:
+      '幼稚園・保育園・施設向けの導入案内はこちらです。現場に合わせた造形レッスンの導入をご相談いただけます。',
+    href: '/kindergartens',
+    buttonText: '園・施設向け案内を見る',
+    imageSrc: '/images/card-kindergartens.png',
+    localImage: true,
+    objectPosition: 'center 48%',
+  },
+  {
+    title: '電子工作教室',
+    description:
+      'プログラミングとものづくりを楽しく学べます。手を動かしながら発想をかたちにしたい方におすすめです。',
+    href: '/programming',
+    buttonText: '電子工作教室を見る',
+    imageSrc: '/images/card-denshi.png',
+    localImage: true,
+    objectPosition: 'center 40%',
+  },
+];
+
+const TopCourseCard = ({
+  title,
+  description,
+  href,
+  buttonText,
+  imageSrc,
+  localImage,
+  objectPosition,
+}: CourseCard) => {
+  const cdnDomain = process.env.NEXT_PUBLIC_CDN_DOMAIN ?? '';
+  const cdnDirectory = process.env.NEXT_PUBLIC_CDN_DIRECTORY ?? '';
+  const resolvedImageSrc = localImage
+    ? imageSrc
+    : `https://${cdnDomain}/${cdnDirectory}${imageSrc}`;
+
+  return (
+    <Box
+      bg={useColorModeValue('white', 'gray.900')}
+      boxShadow="xl"
+      borderRadius="xl"
+      overflow="hidden"
+    >
+      <AspectRatio ratio={16 / 9}>
+        <Image
+          src={resolvedImageSrc}
+          alt={`${title}の写真`}
+          w="full"
+          h="full"
+          objectFit="cover"
+          objectPosition={objectPosition}
+        />
+      </AspectRatio>
+      <Box p={[4, 5]}>
+        <Heading size="md" mb={3}>
+          {title}
+        </Heading>
+        <Text color="gray.700" mb={5} minH={['auto', '72px']}>
+          {description}
+        </Text>
+        <Button
+          as={NextLink}
+          href={href}
+          w="full"
+          variant="outline"
+          colorScheme={title === '子ども絵画造形教室' ? 'blue' : undefined}
+        >
+          {buttonText}
+        </Button>
+      </Box>
+    </Box>
+  );
+};
+
 const Index = () => (
   <Layout>
     <Navigation />
     <Container zIndex={0}>
-      <CardStack>
-        <ClassTypeCard
-          title="こども絵画造形教室"
-          imageSrc="card-kodomo.jpg"
-          linkHref="/kids"
+      <Box mt={[6, 8]} mb={[8, 10]} w="full" maxW="1080px">
+        <Text
+          color="gray.700"
+          fontSize="sm"
+          fontWeight="bold"
+          letterSpacing="0.06em"
+          mb={2}
         >
-          スタジオ
-          クラ絵画造形教室は、現代の子どもを取り巻く環境の中で、どんどん減ってきている創造的に遊ぶ場、創作活動する場を子どもたちに提供しています。
-          発展段階に応じたカリキュラムを通じて、こどもの心をのびのびと育て、創造性をぐんぐん伸ばします。
-        </ClassTypeCard>
-        <ClassTypeCard
-          title="大人の絵画教室"
-          imageSrc="card-otona.jpg"
-          linkHref="/adults"
-        >
-          Studio
-          Kuraの絵画教室は全く初めての方も気軽にいらしていただけるアトリエです。
-          当教室では様々な素材(アクリル，水彩，油絵，鉛筆，木炭など）を使った絵画表現を習得し、楽しく美術に親しんでいただくことを目的としています。
-        </ClassTypeCard>
-        <ClassTypeCard
-          title="電子工作教室"
-          imageSrc="card-denshi.jpg"
-          linkHref="/programming"
-        >
-          Studio
-          Kuraの電子工作室ではProcessingやArduino、Scratchなどのプログラミング言語を使って制作します。プログラミングの基礎を楽しく学びながら、ゲームやアプリ、アート作品を作ります。
-          大人の方もお子様も受講できます。
-        </ClassTypeCard>
-      </CardStack>
-      <Heading mt={'2em'}>教室一覧</Heading>
+          Studio Kura絵画教室
+        </Text>
+        <Heading size={['md', 'lg']} mb={2}>
+          創造力を育てたい方も、絵を楽しみたい方も
+        </Heading>
+        <Text color="gray.700" mb={5}>
+          Studio Kura絵画教室は、子どもから大人まで通える絵画・造形教室です。目的や興味に合わせて、ぴったりのコースをお選びいただけます。
+        </Text>
+        <SimpleGrid columns={[1, 1, 2]} spacing={[5, 6]}>
+          {courseCards.map((card) => (
+            <TopCourseCard key={card.title} {...card} />
+          ))}
+        </SimpleGrid>
+
+        <Box mt={6} pt={5} borderTopWidth="1px" borderTopColor="gray.200">
+          <Text color="gray.700" fontSize="sm" mb={3} fontWeight="bold">
+            まず確認したい方はこちら
+          </Text>
+          <Stack direction={['column', 'column', 'row']} spacing={3}>
+            <Button
+              as={NextLink}
+              href="/trial"
+              colorScheme="blue"
+              size="lg"
+              minH="52px"
+              flex={1}
+            >
+              体験レッスン
+            </Button>
+            <Button
+              as={NextLink}
+              href="/pricing"
+              variant="outline"
+              size="lg"
+              minH="52px"
+              flex={1}
+            >
+              料金
+            </Button>
+            <Button
+              as={NextLink}
+              href="/classrooms"
+              variant="outline"
+              size="lg"
+              minH="52px"
+              flex={1}
+            >
+              教室一覧
+            </Button>
+          </Stack>
+        </Box>
+      </Box>
+
+      <Box w="full" maxW="1080px">
+        <Heading mt="2em">教室一覧</Heading>
+      </Box>
       <CardStack>
         <ItoshimaCard />
         <NishijinCard />
