@@ -45,8 +45,8 @@ importers:
         specifier: ^5.7.0
         version: 5.7.0(react@18.3.1)
       react-iframe:
-        specifier: ^1.8.5
-        version: 1.8.5(react@18.3.1)
+        specifier: ^2.0.0
+        version: 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-p5:
         specifier: ^1.4.1
         version: 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -743,10 +743,12 @@ packages:
     peerDependencies:
       react: '*'
 
-  react-iframe@1.8.5:
-    resolution: {integrity: sha512-F4cQJGs3ydaG6fJWfuz9yLwOU0Trzl6kttXuUG+vYwosH8enOOFxZWEDQCSbNVO8ayjfYZeqLxEvdvcsSy4GvA==}
+  react-iframe@2.0.0:
+    resolution: {integrity: sha512-mwmKlaw3OMtlxOTs0evY76BBj1/lARXxECYCcPLDspsAK9EHtvuYCoDdhw3ghz/9uNTq7QqKR2Qzcq80Zx9b+g==}
+    engines: {node: '>=20'}
     peerDependencies:
-      react: '>=16.x.x'
+      react: '>=18'
+      react-dom: '>=18'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -1535,10 +1537,10 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  react-iframe@1.8.5(react@18.3.1):
+  react-iframe@2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      object-assign: 4.1.1
       react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   react-is@16.13.1: {}
 
