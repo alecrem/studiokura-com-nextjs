@@ -33,8 +33,8 @@ importers:
         specifier: latest
         version: 16.3.4(@types/node@26.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       p5:
-        specifier: 2.3.2
-        version: 2.3.2
+        specifier: 2.3.3
+        version: 2.3.3
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -685,8 +685,8 @@ packages:
   p5@1.7.0:
     resolution: {integrity: sha512-qrbT/44Dwm63ZtOKX/mp61pw+5yj6ijYLOmRv7p6zcfjbo83Vb0gVFEvW0kTLFu7hceWCig0HONo9F1bSlqbsQ==}
 
-  p5@2.3.2:
-    resolution: {integrity: sha512-DlX4rVQb9R2Z16XtTTNN/1zf7FZWy55ApA6ZS0GNJBDraymJcd9kbxmpIDKYnVxiXrchgb2YckWsmm+TSEJVPg==}
+  p5@2.3.3:
+    resolution: {integrity: sha512-+zVz5JFp3sCLpLscTMOLoA0UEHV0dsHxngKVfMmeW1J2/IXvfFqCjNYZeIOtG4Lhfnpm7cu6446P6Ho64ihXfA==}
 
   pako@2.2.0:
     resolution: {integrity: sha512-zJq6RP/5q+TO2OpFV3FHzlPnFjmkb7Nc99a5SNjJE+uu/PkpChs+NIZSSzbBoD+6kjiISXjfYdwj1ZRQ81dz/w==}
@@ -903,8 +903,8 @@ packages:
     resolution: {integrity: sha512-vIYeF1u3CjlhAFekPPAk2h/Kv4T3mAkMox5OymRiJQB0spDP10LHvt+K7G9Ny6NuuMAb25/6n1qyUjAcGNf/AA==}
     engines: {node: '>= 6'}
 
-  zod@4.4.3:
-    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
+  zod@4.5.4:
+    resolution: {integrity: sha512-sC95tT5iHHH9gtpj6A81kh+NEaRAUFN+qlUPDUbRfOMvNf5QCBqsb3WgvnpVtK5Y+4UfA6KqufotuTvMGiTlsA==}
 
 snapshots:
 
@@ -1461,7 +1461,7 @@ snapshots:
 
   p5@1.7.0: {}
 
-  p5@2.3.2:
+  p5@2.3.3:
     dependencies:
       '@davepagurek/bezier-path': 0.0.7
       '@japont/unicode-range': 1.0.0
@@ -1475,7 +1475,7 @@ snapshots:
       libtess: 1.2.2
       omggif: 1.0.10
       pako: 2.2.0
-      zod: 4.4.3
+      zod: 4.5.4
 
   pako@2.2.0: {}
 
@@ -1684,4 +1684,4 @@ snapshots:
 
   yaml@1.10.3: {}
 
-  zod@4.4.3: {}
+  zod@4.5.4: {}
