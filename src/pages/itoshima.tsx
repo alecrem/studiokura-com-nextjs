@@ -41,7 +41,7 @@ const ItoshimaPlace = ({
       bgImageUrl="placeslide3-itoshima.jpg"
       mapImageUrl="place-map-itoshima-big.jpg"
       mapUrl="https://www.google.co.jp/maps/place/%E7%A6%8F%E5%B2%A1%E7%9C%8C%E7%B3%B8%E5%B3%B6%E5%B8%82%E4%BA%8C%E4%B8%88%E6%9D%BE%E6%9C%AB586"
-      address="〒819-1613 福岡県糸島市二丈松末586（一貴山駅からの送迎しております）"
+      address="〒819-1613 福岡県糸島市二丈松末586"
     ></ClassPlaceSlide3>
     <ClassPlaceSlideOtona />
     <ClassPlaceSlideKodomo />
