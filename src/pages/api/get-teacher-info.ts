@@ -7,6 +7,8 @@ export type TeacherData = {
   content?: string;
   images?: string[];
   thumbnailImage?: string;
+  // 一覧で名前の下に出す一言（未指定なら紹介文の最初の一文）
+  tagline?: string;
 };
 
 const handler = async (
