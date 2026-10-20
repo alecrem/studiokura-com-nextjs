@@ -121,4 +121,12 @@ export const teachers = [
     images: ['/images/teachers-suzuki-yuho-1.jpg'],
     thumbnailImage: '/images/teachers-suzuki-yuho-thumbnail.jpg',
   },
+  {
+    slug: 'kumon-yuko',
+    name: '久門裕子',
+    content:
+      '<p>春日市出身</p><p>東京造形大学造形学部　美術学科彫刻専攻卒業</p><p>福岡や東京で作品を発表しています。</p><p>中学高校の美術科教員、美術予備校でデッサン指導、放課後等デイサービス指導員の経験あり。</p>',
+    images: ['/images/teachers-kumon-yuko-1.jpg'],
+    thumbnailImage: '/images/teachers-kumon-yuko-thumbnail.jpg',
+  },
 ];
