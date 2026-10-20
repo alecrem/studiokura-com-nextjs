@@ -35,8 +35,9 @@ const getTeacherPhotoSrc = (teacher: TeacherData) =>
     : (teacher.thumbnailImage ??
       `https://${cdnDomain}/${cdnDirectory}teachers-${teacher.slug}-thumbnail.jpg`);
 
-// 紹介文の最初の一文（出身地など）を名前の下に添える
+// 名前の下に添える一言。tagline がなければ紹介文の最初の一文（出身地など）
 const getTeacherTagline = (teacher: TeacherData) => {
+  if (teacher.tagline) return teacher.tagline;
   const text = (teacher.content ?? '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<\/p>/gi, '\n')

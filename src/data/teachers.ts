@@ -6,6 +6,7 @@ export const teachers = [
       '<p>1979年福岡県糸島市生まれ。広島市立大学芸術学部油絵科卒業後、ドイツハノーバー専科大学で学ぶ。ヨーロッパを中心に世界各地で展示を行う。糸島から世界へ文化発信をモットーに2009年アート カンパニー（株）Studio Kuraを設立。糸島芸術祭「<a href="http://www.ito-artsfarm.com/" target="BLANK"/>糸島芸農</a>」実行委員長<br />2024年福岡県文化賞　社会部門受賞</p>',
     images: ['/images/teachers-matsuzaki-1.jpg'],
     thumbnailImage: '/images/teachers-matsuzaki-thumbnail.jpg',
+    tagline: '福岡県糸島市出身',
   },
   {
     slug: 'alejandro',
