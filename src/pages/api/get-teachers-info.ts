@@ -1,4 +1,4 @@
-import { teachers } from '@/data/teachers';
+import { visibleTeachers } from '@/data/teachers';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export type TeacherData = {
@@ -10,17 +10,6 @@ export type TeacherData = {
   // 一覧で名前の下に出す一言（未指定なら紹介文の最初の一文）
   tagline?: string;
 };
-
-const hiddenTeacherSlugs = new Set([
-  'alejandro',
-  'azuma',
-  'watanabe',
-  'tanaka',
-  'nakajima',
-  'moriyama',
-  'sakai',
-  'maki',
-]);
 
 const handler = async (
   req: NextApiRequest,
@@ -34,9 +23,7 @@ const handler = async (
   }
 
   try {
-    const teachersData: TeacherData[] = teachers.filter(
-      (teacher) => !hiddenTeacherSlugs.has(teacher.slug)
-    );
+    const teachersData: TeacherData[] = visibleTeachers;
     if (teachersData.length < 1)
       res.status(404).json([{ slug: 'error', content: 'Teacher not found' }]);
     res.status(200).json(teachersData);

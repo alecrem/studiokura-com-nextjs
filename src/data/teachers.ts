@@ -131,3 +131,19 @@ export const teachers = [
     thumbnailImage: '/images/teachers-hisakado-thumbnail.jpg',
   },
 ];
+
+// 一覧に表示しない講師（現在は担当していない方）
+export const hiddenTeacherSlugs = new Set([
+  'alejandro',
+  'azuma',
+  'watanabe',
+  'tanaka',
+  'nakajima',
+  'moriyama',
+  'sakai',
+  'maki',
+]);
+
+export const visibleTeachers = teachers.filter(
+  (teacher) => !hiddenTeacherSlugs.has(teacher.slug)
+);
