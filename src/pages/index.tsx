@@ -2,14 +2,24 @@ import {
   AspectRatio,
   Box,
   Button,
+  Flex,
   Heading,
+  Icon,
   Image,
   SimpleGrid,
   Stack,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import { type ComponentType, type ReactNode } from 'react';
+import type { IconType } from 'react-icons';
+import { LuCalendarClock, LuGlobe, LuMapPin, LuPalette } from 'react-icons/lu';
 
 import {
   BefuCard,
@@ -32,8 +42,10 @@ import {
 } from '@/components/ClassPlaces';
 import { Container } from '@/components/Container';
 import { Footer } from '@/components/Footer';
-import { CardStack, Layout } from '@/components/Layout';
+import { Layout } from '@/components/Layout';
 import { Navigation } from '@/components/Navigation';
+import { TeacherCard } from '@/components/TeacherCard';
+import { visibleTeachers } from '@/data/teachers';
 
 type CourseCard = {
   title: string;
@@ -87,6 +99,99 @@ const courseCards: CourseCard[] = [
     objectPosition: 'center 40%',
   },
 ];
+
+type Reason = {
+  icon: IconType;
+  title: string;
+  description: string;
+};
+
+const reasons: Reason[] = [
+  {
+    icon: LuCalendarClock,
+    title: '2009年から続く教室',
+    description:
+      '糸島市二丈を拠点に、2009年から地域の子どもから大人までアートの時間を届けています。',
+  },
+  {
+    icon: LuPalette,
+    title: '作家として活動する講師',
+    description:
+      '美術大学などで学び、今も作品を制作・発表している講師が、一人ひとりの表現に寄り添います。',
+  },
+  {
+    icon: LuGlobe,
+    title: '世界とつながるアトリエ',
+    description:
+      '国内外のアーティストが滞在して制作する、アーティスト・イン・レジデンスも運営しています。',
+  },
+  {
+    icon: LuMapPin,
+    title: '通いやすい16教室',
+    description:
+      '糸島市・福岡市・大野城市・久留米市・佐賀県武雄市の16教室と、オンラインで開講しています。',
+  },
+];
+
+type ClassPlaceArea = {
+  label: string;
+  places: ComponentType[];
+};
+
+// 教室一覧ページ（/classrooms）の地域分けに合わせる
+const classPlaceAreas: ClassPlaceArea[] = [
+  { label: '糸島市', places: [ItoshimaCard, TomariCard] },
+  {
+    label: '福岡市',
+    places: [
+      NishijinCard,
+      MomochiCard,
+      HakozakiCard,
+      Hakozaki2Card,
+      KashiiCard,
+      SarayamaCard,
+      NagazumiCard,
+      HashimotoCard,
+      MeinohamaCard,
+      MotookaCard,
+      BefuCard,
+    ],
+  },
+  { label: '大野城市・久留米市', places: [OnojyoCard, KurumeCard] },
+  { label: '佐賀県武雄市', places: [TakeoCard] },
+  { label: 'オンライン', places: [OnlineCard] },
+];
+
+const SectionHeading = ({
+  eyebrow,
+  title,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  children?: ReactNode;
+}) => (
+  <Box mb={[5, 6]}>
+    <Text
+      color="gray.700"
+      _dark={{ color: 'gray.300' }}
+      fontSize="sm"
+      fontWeight="bold"
+      letterSpacing="0.06em"
+      mb={2}
+    >
+      {eyebrow}
+    </Text>
+    <Heading as="h2" size={['md', 'lg']} mb={children ? 2 : 0}>
+      {title}
+    </Heading>
+    {children && (
+      <Text color="gray.700" _dark={{ color: 'gray.300' }}>
+        {children}
+      </Text>
+    )}
+  </Box>
+);
 
 const TopCourseCard = ({
   title,
@@ -142,24 +247,27 @@ const TopCourseCard = ({
 };
 
 const Index = () => (
-  <Layout>
+  <Layout description="福岡県糸島市・福岡市・大野城市・久留米市・佐賀県武雄市の16教室とオンラインで開講する絵画造形教室 Studio Kura。子ども絵画造形教室、大人の絵画教室、電子工作教室、幼稚園・保育園向けレッスンを、作家として活動する講師が担当しています。">
     <Navigation />
     <Container zIndex={0}>
       <Box mt={[6, 8]} mb={[8, 10]} w="full" maxW="1080px">
-        <Text
+        <Heading
+          as="h1"
           color="gray.700"
+          _dark={{ color: 'gray.300' }}
           fontSize="sm"
           fontWeight="bold"
           letterSpacing="0.06em"
           mb={2}
         >
-          Studio Kura絵画教室
-        </Text>
-        <Heading size={['md', 'lg']} mb={2}>
+          福岡・糸島の絵画造形教室 Studio Kura
+        </Heading>
+        <Heading as="h2" size={['md', 'lg']} mb={2}>
           創造力を育てたい方も、絵を楽しみたい方も
         </Heading>
         <Text color="gray.700" mb={5}>
-          Studio Kura絵画教室は、子どもから大人まで通える絵画・造形教室です。目的や興味に合わせて、ぴったりのコースをお選びいただけます。
+          Studio
+          Kura絵画教室は、子どもから大人まで通える絵画・造形教室です。目的や興味に合わせて、ぴったりのコースをお選びいただけます。
         </Text>
         <SimpleGrid columns={[1, 1, 2]} spacing={[5, 6]}>
           {courseCards.map((card) => (
@@ -206,38 +314,99 @@ const Index = () => (
         </Box>
       </Box>
 
-      <Box w="full" maxW="1080px">
-        <Heading mt="2em">教室一覧</Heading>
+      <Box w="full" maxW="1080px" mb={[12, 16]}>
+        <SectionHeading
+          eyebrow="Studio Kuraが選ばれる理由"
+          title="アートを、もっと身近に"
+        >
+          描く楽しさを入り口に、見る力・考える力・表現する力を育てます。
+        </SectionHeading>
+        <SimpleGrid columns={[1, 2, 2, 4]} spacing={[4, 5]}>
+          {reasons.map((reason) => (
+            <Box
+              key={reason.title}
+              bg="white"
+              _dark={{ bg: 'gray.800' }}
+              borderRadius="xl"
+              boxShadow="md"
+              p={[5, 6]}
+            >
+              <Flex
+                w={12}
+                h={12}
+                mb={4}
+                align="center"
+                justify="center"
+                borderRadius="full"
+                bg="blue.50"
+                color="blue.600"
+                _dark={{ bg: 'blue.900', color: 'blue.200' }}
+              >
+                <Icon as={reason.icon} boxSize={6} />
+              </Flex>
+              <Heading as="h3" size="sm" mb={2}>
+                {reason.title}
+              </Heading>
+              <Text
+                fontSize="sm"
+                color="gray.700"
+                _dark={{ color: 'gray.300' }}
+              >
+                {reason.description}
+              </Text>
+            </Box>
+          ))}
+        </SimpleGrid>
       </Box>
-      <CardStack>
-        <ItoshimaCard />
-        <NishijinCard />
-        <TakeoCard />
-      </CardStack>
-      <CardStack>
-        <HakozakiCard />
-        <Hakozaki2Card />
-        <HashimotoCard />
-      </CardStack>
-      <CardStack>
-        <MeinohamaCard />
-        <SarayamaCard />
-        <MomochiCard />
-      </CardStack>
-      <CardStack>
-        <KashiiCard />
-        <MotookaCard />
-        <BefuCard />
-      </CardStack>
-      <CardStack>
-        <OnojyoCard />
-        <NagazumiCard />
-        <TomariCard />
-      </CardStack>
-      <CardStack>
-        <KurumeCard />
-        <OnlineCard />
-      </CardStack>
+
+      <Box w="full" maxW="1080px" mb={[12, 16]}>
+        <SectionHeading eyebrow="講師紹介" title="講師たち">
+          作家として制作を続ける講師が、レッスンを担当しています。
+        </SectionHeading>
+        <SimpleGrid columns={[2, 2, 4]} spacing={[4, 5, 6]}>
+          {visibleTeachers.slice(0, 4).map((teacher) => (
+            <TeacherCard key={teacher.slug} teacher={teacher} headingAs="h3" />
+          ))}
+        </SimpleGrid>
+        <Flex justify="center" mt={[6, 8]}>
+          <Button as={NextLink} href="/teachers" variant="outline" size="lg">
+            講師一覧を見る（{visibleTeachers.length}名）
+          </Button>
+        </Flex>
+      </Box>
+
+      <Box w="full" maxW="1080px">
+        <SectionHeading eyebrow="教室一覧" title="お近くの教室を探す" />
+        <Tabs variant="soft-rounded" colorScheme="blue" isFitted={false}>
+          <TabList flexWrap="wrap" gap={2}>
+            {classPlaceAreas.map((area) => (
+              <Tab key={area.label} fontSize={['sm', 'md']}>
+                {area.label}（{area.places.length}）
+              </Tab>
+            ))}
+          </TabList>
+          <TabPanels>
+            {classPlaceAreas.map((area) => (
+              <TabPanel key={area.label} px={0}>
+                <SimpleGrid
+                  columns={[1, 1, 2, 3]}
+                  justifyItems="center"
+                  spacingX={2}
+                >
+                  {area.places.map((Place, i) => (
+                    <Place key={i} />
+                  ))}
+                </SimpleGrid>
+              </TabPanel>
+            ))}
+          </TabPanels>
+        </Tabs>
+        <Flex justify="center" mt={4}>
+          <Button as={NextLink} href="/classrooms" variant="outline" size="lg">
+            すべての教室を地域別に見る
+          </Button>
+        </Flex>
+      </Box>
       <Footer />
     </Container>
   </Layout>
