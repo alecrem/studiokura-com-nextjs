@@ -30,7 +30,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       method: 'POST',
       body: formData,
     });
-    const apiResponse = await apiRequest.json();
+    const apiResponse = await apiRequest.json().catch(() => null);
+    if (!apiRequest.ok) {
+      // Don't report success when the backend rejected or failed to save the inquiry
+      res.status(502).json([
+        {
+          slug: 'error',
+          content: apiResponse?.error ?? `upstream ${apiRequest.status}`,
+        },
+      ]);
+      return;
+    }
     res.status(200).json({
       message: 'ok',
       data: apiResponse,
