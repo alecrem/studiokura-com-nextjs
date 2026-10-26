@@ -9,7 +9,7 @@ const Reschedule = () => (
     <Container height={'100vh'} width={'100vw'} px={'0'}>
       <Iframe
         url={
-          'https://online.studiokura.com/cake/class_reservations/yoyaku/barebones/true'
+          'https://app.studiokura.com/forms/class_reservations/yoyaku'
         }
         width={'100%'}
         height={'100%'}
