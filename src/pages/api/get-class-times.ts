@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+const apiUri = (process.env.API_URI ?? '').replace(/\/+$/, '');
+
 type PinResponseData = {
   status: string;
   error?: string;
@@ -35,10 +37,13 @@ const handler = async (
 
   const classtype = args['classtype'] as string;
   const classTypeId: string = classTypeIds[classtype];
-  const backendUrl = `https://online.studiokura.com/cake/class_types/listwidget/${classTypeId}/json`;
+  const backendUrl = `${apiUri}/public/class-types/${classTypeId}/class-times`;
 
   try {
-    const classTimes = fetch(backendUrl).then((res) => res.json());
+    const classTimes = fetch(backendUrl).then((res) => {
+      if (!res.ok) throw new Error(`upstream ${res.status}`);
+      return res.json();
+    });
 
     let resultBody = {
       status: 'success',
