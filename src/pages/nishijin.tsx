@@ -33,7 +33,7 @@ const NishijinPlace = ({
       placeName="Studio Kura 西新校"
       tagline="大人の絵画教室・子ども絵画造形教室・電子工作教室"
       bgImageUrl="placeslide2-nishijin.jpg"
-      calendarUrl="https://online.studiokura.com/cake/class_places/calendarwidget/nishijin"
+      calendarUrl="https://app.studiokura.com/widgets/class_places/calendarwidget/nishijin"
     ></ClassPlaceSlide2>
     <ClassPlaceSlide3
       placeName="Studio Kura 西新校"

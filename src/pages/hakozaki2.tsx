@@ -32,7 +32,7 @@ const Hakozaki2Place = ({
       placeName="Studio Kura 箱崎第二校"
       tagline="子ども絵画造形教室"
       bgImageUrl="placeslide2-hakozaki2.jpg"
-      calendarUrl="https://online.studiokura.com/cake/class_places/calendarwidget/hakozaki2"
+      calendarUrl="https://app.studiokura.com/widgets/class_places/calendarwidget/hakozaki2"
     ></ClassPlaceSlide2>
     <ClassPlaceSlide3
       placeName="Studio Kura 箱崎第二校"

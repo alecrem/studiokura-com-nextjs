@@ -33,7 +33,7 @@ const TakeoPlace = ({
       placeName="Studio Kura 武雄校"
       tagline="子ども絵画造形教室"
       bgImageUrl="placeslide2-takeo.jpg"
-      calendarUrl="https://online.studiokura.com/cake/class_places/calendarwidget/takeo"
+      calendarUrl="https://app.studiokura.com/widgets/class_places/calendarwidget/takeo"
     ></ClassPlaceSlide2>
     <ClassPlaceSlide3
       placeName="Studio Kura 武雄校"

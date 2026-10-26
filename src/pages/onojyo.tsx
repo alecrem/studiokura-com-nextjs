@@ -33,7 +33,7 @@ const OnojyoPlace = ({
       placeName="Studio Kura 大野城校"
       tagline="子ども絵画造形教室"
       bgImageUrl="placeslide2-onojyo.jpg"
-      calendarUrl="https://online.studiokura.com/cake/class_places/calendarwidget/onojyo"
+      calendarUrl="https://app.studiokura.com/widgets/class_places/calendarwidget/onojyo"
     ></ClassPlaceSlide2>
     <ClassPlaceSlide3
       placeName="Studio Kura 大野城校"

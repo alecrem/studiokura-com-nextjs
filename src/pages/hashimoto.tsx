@@ -33,7 +33,7 @@ const HashimotoPlace = ({
       placeName="Studio Kura 橋本校"
       tagline="子ども絵画造形教室・電子工作教室"
       bgImageUrl="placeslide2-hashimoto.jpg"
-      calendarUrl="https://online.studiokura.com/cake/class_places/calendarwidget/hashimoto"
+      calendarUrl="https://app.studiokura.com/widgets/class_places/calendarwidget/hashimoto"
     ></ClassPlaceSlide2>
     <ClassPlaceSlide3
       placeName="Studio Kura 橋本校"

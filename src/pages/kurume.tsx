@@ -32,7 +32,7 @@ const KurumePlace = ({
     <ClassPlaceSlide2
       placeName="Studio Kura 久留米校"
       tagline="大人の絵画教室・子ども絵画造形教室・電子工作教室"
-      calendarUrl="https://online.studiokura.com/cake/class_places/calendarwidget/kurume"
+      calendarUrl="https://app.studiokura.com/widgets/class_places/calendarwidget/kurume"
     ></ClassPlaceSlide2>
     <ClassPlaceSlide3
       placeName="Studio Kura 久留米校"
