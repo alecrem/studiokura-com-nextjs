@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-const uri = process.env.CONTACT_FORM_API_URI || '';
+const apiUri = (process.env.API_URI ?? '').replace(/\/+$/, '');
+const uri = apiUri ? `${apiUri}/public/contacts` : '';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {

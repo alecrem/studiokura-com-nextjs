@@ -38,9 +38,10 @@ cp .env.sample .env.local
 
 - `NEXT_PUBLIC_CDN_DOMAIN` と `NEXT_PUBLIC_CDN_DIRECTORY` に関しては下記に説明あり
 - `NEXT_PUBLIC_PHONE_NUMBER`: 絵画教室の電話番号
-- `CONTACT_FORM_API_URI`: [Studio Kura 情報管理システム](https://github.com/studio-kura/studiokura-cake-intranet)の Contact submit エンドポイントの URI
-- `KINDERGARTENS_FORM_API_URI`: 情報管理システムの KindergartenContact submit エンドポイントの URI
-- `CLASS_PLACES_API_URI`: ClassPlace を取得する情報管理 API の URI。`{slug}` を含む形式か、`?slug=` を受ける形式のどちらでも可
+- `API_URI`: Studio Kura 情報管理システム（Laravel）の API のベース URI（例: `https://app.studiokura.com/api`）。下記のエンドポイントはこの後ろに付けて呼ぶ
+  - `POST {API_URI}/public/contacts`: お問い合わせフォーム
+  - `POST {API_URI}/public/kindergarten-contacts`: 園向けフォーム
+  - `GET {API_URI}/public/class-places/{slug}`: 教室トップのお知らせ（ClassPlace）
 
 \* 実際の環境変数の値は、非公開ドキュメントを参照
 
@@ -79,8 +80,8 @@ cp .env.sample .env.local
 
 ## ClassPlace データソース
 
-- `/hakozaki` `/meinohama` `/sarayama` のトップメモは `getServerSideProps -> /api/class-places/{slug} -> CLASS_PLACES_API_URI` の順で取得（BFF経由）
-- ブラウザは Cake API を直接呼ばない（Cake の URI は Next.js サーバーのみが参照）
+- `/hakozaki` `/meinohama` `/sarayama` のトップメモは `getServerSideProps -> /api/class-places/{slug} -> {API_URI}/public/class-places/{slug}` の順で取得（BFF経由）
+- ブラウザは情報管理システムの API を直接呼ばない（API の URI は Next.js サーバーのみが参照）
 - 取得に失敗した場合のみ各ページのフォールバック文言を表示
 - 各ページは `getServerSideProps` を使い、レスポンスに `Cache-Control: no-store` を付与して常に最新のメモを反映
 - API 失敗時は Vercel logs で追跡できるように `slug / request-id / status / upstreamUrl / errorType` をサーバーログ出力
@@ -88,7 +89,7 @@ cp .env.sample .env.local
 
 ## Vercel 環境変数
 
-- `CLASS_PLACES_API_URI` はサーバー専用（`NEXT_PUBLIC_` を付けない）
+- `API_URI` はサーバー専用（`NEXT_PUBLIC_` を付けない）
 - Vercel Project Settings -> Environment Variables で `Preview` と `Production` の両方に同じキーを設定
 - 形式は `https://.../class-places/{slug}` または `https://.../class-places?slug=` のどちらでも可
 - 変更後は `Redeploy` が必要
