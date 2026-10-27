@@ -33,7 +33,7 @@ const meinohamaPlace = ({
       placeName="Studio Kura 姪浜校"
       tagline="子ども絵画造形教室"
       bgImageUrl="placeslide2-meinohama.jpg"
-      calendarUrl="https://online.studiokura.com/cake/class_places/calendarwidget/meinohama"
+      calendarUrl="https://app.studiokura.com/widgets/class_places/calendarwidget/meinohama"
     ></ClassPlaceSlide2>
     <ClassPlaceSlide3
       placeName="Studio Kura 姪浜校"

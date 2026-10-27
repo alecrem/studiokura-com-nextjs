@@ -33,7 +33,7 @@ const OnlinePlace = ({
       placeName="Studio Kura オンライン校"
       tagline="電子工作教室"
       bgImageUrl="placeslide2-online.jpg"
-      calendarUrl="https://online.studiokura.com/cake/class_places/calendarwidget/online"
+      calendarUrl="https://app.studiokura.com/widgets/class_places/calendarwidget/online"
     ></ClassPlaceSlide2>
     <ClassPlaceSlide3
       placeName="Studio Kura オンライン校"
