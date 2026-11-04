@@ -3,7 +3,10 @@ import { type GetServerSideProps } from 'next';
 
 import { fetchClassPlace } from '@/utils/classPlace';
 
-const classPlacesApiUri = process.env.CLASS_PLACES_API_URI ?? '';
+const apiUri = (process.env.API_URI ?? '').replace(/\/+$/, '');
+const classPlacesApiUri = apiUri
+  ? `${apiUri}/public/class-places/{slug}`
+  : '';
 const upstreamTimeoutMs = 10000;
 
 const readRequestId = (req: IncomingMessage): string => {
@@ -35,7 +38,7 @@ export const fetchTopMemoFromBff = async (
       requestId,
       endpoint: 'unknown',
       status: 'missing-env',
-      error: 'CLASS_PLACES_API_URI is not set',
+      error: 'API_URI is not set',
     };
   }
 

@@ -3,7 +3,7 @@ import {
   FormItem,
 } from '@/components/KindergartenForm';
 import { type KindergartenFormData } from '@/utils';
-import { Button, FormControl } from '@chakra-ui/react';
+import { Button, FormControl, Text } from '@chakra-ui/react';
 import { ChangeEventHandler, useState } from 'react';
 
 type FormInput = {
@@ -41,7 +41,9 @@ interface Props {
 const KindergartenForm = (props: Props) => {
   const { variant } = props;
   const [formInput, setFormInput] = useState<FormInput>(initialFormInput);
-  const [formWasSubmitted, setFormWasSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'sending' | 'sent' | 'error'
+  >('idle');
   const formData: KindergartenFormData = {
     contact_type: variant,
     kindergarten: formInput.kindergarten,
@@ -171,15 +173,21 @@ const KindergartenForm = (props: Props) => {
   const messageIsValid = variant != 'contact' || formInput.message.length > 0;
 
   const formSubmittable =
-    emailIsValid && nameIsValid && messageIsValid && !formWasSubmitted;
+    emailIsValid &&
+    nameIsValid &&
+    messageIsValid &&
+    (submitStatus === 'idle' || submitStatus === 'error');
   const handleSubmit = async () => {
-    setFormWasSubmitted(true);
-    const apiRequest = await fetch('/api/post-kindergarten-form', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-    });
-    // const apiResponse = await apiRequest.json()
-    // console.log('FORM SUBMITTED', formData, apiResponse)
+    setSubmitStatus('sending');
+    try {
+      const apiRequest = await fetch('/api/post-kindergarten-form', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      });
+      setSubmitStatus(apiRequest.ok ? 'sent' : 'error');
+    } catch {
+      setSubmitStatus('error');
+    }
   };
 
   return (
@@ -276,8 +284,17 @@ const KindergartenForm = (props: Props) => {
           onClick={handleSubmit}
           isDisabled={!formSubmittable}
         >
-          {formWasSubmitted ? '送信されました' : '送信する'}
+          {submitStatus === 'sent'
+            ? '送信されました'
+            : submitStatus === 'sending'
+            ? '送信中…'
+            : '送信する'}
         </Button>
+        {submitStatus === 'error' && (
+          <Text mt={'0.5rem'} color={'red.500'}>
+            送信できませんでした。お手数ですが、もう一度お試しください。
+          </Text>
+        )}
       </FormControl>
     </>
   );
