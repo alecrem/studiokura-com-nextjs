@@ -45,6 +45,7 @@ import { Footer } from '@/components/Footer';
 import { Layout } from '@/components/Layout';
 import { Navigation } from '@/components/Navigation';
 import { TeacherCard } from '@/components/TeacherCard';
+import { pricing } from '@/data/pricing';
 import { visibleTeachers } from '@/data/teachers';
 
 type CourseCard = {
@@ -269,49 +270,52 @@ const Index = () => (
           Studio
           Kura絵画教室は、子どもから大人まで通える絵画・造形教室です。目的や興味に合わせて、ぴったりのコースをお選びいただけます。
         </Text>
+        <Stack direction={['column', 'row']} spacing={3} mb={2}>
+          <Button
+            as={NextLink}
+            href="/trial"
+            colorScheme="blue"
+            size="lg"
+            minH="52px"
+            flex={[null, 2]}
+          >
+            体験レッスンを申し込む
+          </Button>
+          <Button
+            as={NextLink}
+            href="/pricing"
+            variant="outline"
+            size="lg"
+            minH="52px"
+            flex={[null, 1]}
+          >
+            料金を見る
+          </Button>
+          <Button
+            as={NextLink}
+            href="/classrooms"
+            variant="outline"
+            size="lg"
+            minH="52px"
+            flex={[null, 1]}
+          >
+            教室一覧
+          </Button>
+        </Stack>
+        <Text
+          color="gray.700"
+          _dark={{ color: 'gray.300' }}
+          fontSize="sm"
+          mb={6}
+        >
+          体験レッスン {pricing.taiken.toLocaleString()}円（大人・子ども共通）／
+          月謝 {pricing.twopermonth.toLocaleString()}円〜（月2回コース）
+        </Text>
         <SimpleGrid columns={[1, 1, 2]} spacing={[5, 6]}>
           {courseCards.map((card) => (
             <TopCourseCard key={card.title} {...card} />
           ))}
         </SimpleGrid>
-
-        <Box mt={6} pt={5} borderTopWidth="1px" borderTopColor="gray.200">
-          <Text color="gray.700" fontSize="sm" mb={3} fontWeight="bold">
-            まず確認したい方はこちら
-          </Text>
-          <Stack direction={['column', 'column', 'row']} spacing={3}>
-            <Button
-              as={NextLink}
-              href="/trial"
-              colorScheme="blue"
-              size="lg"
-              minH="52px"
-              flex={1}
-            >
-              体験レッスン
-            </Button>
-            <Button
-              as={NextLink}
-              href="/pricing"
-              variant="outline"
-              size="lg"
-              minH="52px"
-              flex={1}
-            >
-              料金
-            </Button>
-            <Button
-              as={NextLink}
-              href="/classrooms"
-              variant="outline"
-              size="lg"
-              minH="52px"
-              flex={1}
-            >
-              教室一覧
-            </Button>
-          </Stack>
-        </Box>
       </Box>
 
       <Box w="full" maxW="1080px" mb={[12, 16]}>

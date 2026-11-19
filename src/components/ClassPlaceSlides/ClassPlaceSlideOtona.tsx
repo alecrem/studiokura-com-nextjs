@@ -38,7 +38,7 @@ const ClassPlaceSlideOtona = (props: ClassPlaceSlideOtonaProps) => {
               </Text>
               <Text mb={4}>
                 またStudio
-                Kuraのレジデンスプログラムを訪れる海外のアーティストが行うワークショプや、様々な交流を通して美術の面白さを体験できます。
+                Kuraのレジデンスプログラムを訪れる海外のアーティストが行うワークショップや、様々な交流を通して美術の面白さを体験できます。
               </Text>
             </Box>
             <Text color="white" fontSize={'2em'}>

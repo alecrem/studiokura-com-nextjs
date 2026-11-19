@@ -9,7 +9,7 @@ const TomariCard = () => (
     kidsClass={true}
     programmingClass={false}
   >
-    〒819-1111 福岡県糸島市泊１２１６−２ 泊第ー公民館
+    〒819-1111 福岡県糸島市泊１２１６−２ 泊第一公民館
   </ClassPlaceCard>
 );
 
