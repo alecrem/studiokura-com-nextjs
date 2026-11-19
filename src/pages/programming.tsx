@@ -104,7 +104,7 @@ const ProgrammingClass = () => (
         </Stack>
         {/* Links to places doing programming classes */}
         <Box mt={16} mb={8}>
-          近くの教室、もしくはオンラインで授業を受けましょう。
+          近くの教室で授業を受けましょう。
           <br />
           時間割、アクセスは各教室のリンク先をご確認ください。
         </Box>
@@ -112,7 +112,6 @@ const ProgrammingClass = () => (
           <ClassPlaceLinkButton name={'糸島校'} href={'/itoshima'} />
           <ClassPlaceLinkButton name={'西新校'} href={'/nishijin'} />
           <ClassPlaceLinkButton name={'久留米校'} href={'/kurume'} />
-          <ClassPlaceLinkButton name={'オンライン校'} href={'/online'} />
         </Stack>
         {/* Languages section */}
         <Stack direction={['column', 'column', 'row']} my={'16'}>

@@ -34,7 +34,6 @@ import {
   MotookaCard,
   NagazumiCard,
   NishijinCard,
-  OnlineCard,
   OnojyoCard,
   SarayamaCard,
   TakeoCard,
@@ -130,7 +129,7 @@ const reasons: Reason[] = [
     icon: LuMapPin,
     title: '通いやすい16教室',
     description:
-      '糸島市・福岡市・大野城市・久留米市・佐賀県武雄市の16教室と、オンラインで開講しています。',
+      '糸島市・福岡市・大野城市・久留米市・佐賀県武雄市の16教室で開講しています。',
   },
 ];
 
@@ -160,7 +159,6 @@ const classPlaceAreas: ClassPlaceArea[] = [
   },
   { label: '大野城市・久留米市', places: [OnojyoCard, KurumeCard] },
   { label: '佐賀県武雄市', places: [TakeoCard] },
-  { label: 'オンライン', places: [OnlineCard] },
 ];
 
 const SectionHeading = ({
@@ -248,7 +246,7 @@ const TopCourseCard = ({
 };
 
 const Index = () => (
-  <Layout description="福岡県糸島市・福岡市・大野城市・久留米市・佐賀県武雄市の16教室とオンラインで開講する絵画造形教室 Studio Kura。子ども絵画造形教室、大人の絵画教室、電子工作教室、幼稚園・保育園向けレッスンを、作家として活動する講師が担当しています。">
+  <Layout description="福岡県糸島市・福岡市・大野城市・久留米市・佐賀県武雄市の16教室で開講する絵画造形教室 Studio Kura。子ども絵画造形教室、大人の絵画教室、電子工作教室、幼稚園・保育園向けレッスンを、作家として活動する講師が担当しています。">
     <Navigation />
     <Container zIndex={0}>
       <Box mt={[6, 8]} mb={[8, 10]} w="full" maxW="1080px">
