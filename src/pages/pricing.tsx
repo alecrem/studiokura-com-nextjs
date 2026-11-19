@@ -20,6 +20,7 @@ const Pricing = () => (
       <Text>絵画教室から電子工作室までどの教室も同一料金です。</Text>
       <PricingBox />
       <Text>入会金はお一人{pricing.nyukai.toLocaleString()}円です。</Text>
+      <Text>体験レッスンは{pricing.taiken.toLocaleString()}円です。</Text>
       <Heading size={'md'} my={'1em'}>
         お支払い方法
       </Heading>
