@@ -11,7 +11,6 @@ import {
   MotookaCard,
   NagazumiCard,
   NishijinCard,
-  OnlineCard,
   OnojyoCard,
   SarayamaCard,
   TakeoCard,
@@ -60,9 +59,6 @@ const Classrooms = () => (
         </ScrollLink>
         <ScrollLink className={'btn'} href={'#takeo'}>
           佐賀県武雄市
-        </ScrollLink>
-        <ScrollLink className={'btn'} href={'#online'}>
-          オンライン
         </ScrollLink>
       </Box>
       <Heading mt={16} size={'xl'} id={'itoshima'}>
@@ -125,12 +121,6 @@ const Classrooms = () => (
       </Heading>
       <CardStack>
         <TakeoCard />
-      </CardStack>
-      <Heading mt={16} size={'xl'} id={'online'}>
-        オンライン
-      </Heading>
-      <CardStack>
-        <OnlineCard />
       </CardStack>
       <Footer />
     </Container>
